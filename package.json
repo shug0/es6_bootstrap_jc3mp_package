@@ -1,0 +1,16 @@
+{
+  "name": "es6_bootstrap_jc3mp_package",
+  "version": "1.0.0",
+  "description": "Bootstrap package for fresh project",
+  "main": "install.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node installServer.js && node installClient.js"
+  },
+  "author": "Thomas A || Shug0",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "fs-extra": "^2.0.0"
+  }
+}
