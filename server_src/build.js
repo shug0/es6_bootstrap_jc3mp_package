@@ -1,15 +1,16 @@
 // Needed modules for building system
-const fs         = require('fs-extra');
-const path       = require('path');
-const exec       = require('child_process').exec;
-const rimrafSync = require('rimraf').sync;
-const chalk      = require('chalk');
+const packageJSON = require('../package.json');
+const fs          = require('fs-extra');
+const path        = require('path');
+const exec        = require('child_process').exec;
+const rimrafSync  = require('rimraf').sync;
+const chalk       = require('chalk');
 
 const resolveApp = relativePath => path.resolve(fs.realpathSync(process.cwd()), relativePath);
-const echo = (color, msg) => console.log(chalk[color]());
+const echo = (color, msg) => console.log(chalk[color](msg));
 
 // Init path
-const appPackageFolderPath = resolveApp('../../packages/survival_garrigues');
+const appPackageFolderPath = resolveApp(`../../packages/${packageJSON.name}`);
 const serverSrc            = resolveApp('./src');
 const serverSrcPackageJson = resolveApp('./src/package.json');
 

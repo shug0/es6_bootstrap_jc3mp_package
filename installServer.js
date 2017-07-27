@@ -4,7 +4,7 @@ const path  = require('path');
 const exec  = require('child_process').exec;
 const chalk = require('chalk');
 
-const echo  = (color, msg) => console.log(chalk[color]());
+const echo  = (color, msg) => console.log(chalk[color](msg));
 const resolveApp = relativePath => path.resolve(fs.realpathSync(process.cwd()), relativePath);
 
 // Init path
@@ -15,9 +15,11 @@ echo('magenta', 'INSTALLING SERVER SIDE...');
 exec('npm i', {
     cwd: serverSrc
   }, () => {
-    exec('node ./build.js', {
+    const serverInstallProcess = exec('node ./build.js', {
         cwd: serverSrc
       }, echo('green', 'SERVER SIDE INSTALLED')
     );
+    serverInstallProcess.stdout.on('data', data => console.log(data));
   }
 );
+

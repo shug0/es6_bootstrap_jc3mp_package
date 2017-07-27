@@ -7,5 +7,5 @@
   "jcmp_dependencies": [
     "chat",
     "command-manager"
-  ],
+  ]
 }
